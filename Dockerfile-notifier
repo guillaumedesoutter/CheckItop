@@ -1,0 +1,14 @@
+FROM python:3.13-slim
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier le fichier requirements.txt et installer les dépendances
+COPY requirements_notifier.txt .
+RUN pip install -r requirements_notifier.txt
+
+# Copier le script dans le conteneur
+COPY notifier.py .
+
+# Exécuter le script Python
+CMD ["python", "notifier.py"]
