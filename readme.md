@@ -8,7 +8,7 @@
 
   
 
-Ce projet a pour but de réduire les erreurs humaines en automatisant la vérification de la liste des incidents ITOP et de notifier les membres d’une équipe directement dans un canal Teams lorsqu’une P1 arrive ou lorsqu’un TTR/TTO va expirer.
+Ce projet a pour but de réduire les erreurs humaines en automatisant la vérification de la liste des incidents ITOP et de notifier les membres d’une équipe directement dans un canal Teams lorsqu’un incident arrive.
 
   
 
@@ -61,15 +61,20 @@ Objectif : Notifier les équipes des nouveaux incidents ou de leur mise à jour 
 
 - Connexion à Redis : Se connecte à Redis pour récupérer les incidents dont le champ notif_send est à False.
 
-- Vérification des critères et de l'état de notification : Parcourt chaque incident pour vérifier les critères TTO/TTR, la priorité et si une notification a déjà été envoyée.
-
 - Envoi de la notification : Formate et envoie une notification via un webhook Teams. Si l’envoi est réussi, le champ notif_send est mis à True dans Redis.
 
 - Gestion des erreurs d’envoi : En cas d’échec, le script capture le code de statut HTTP pour faciliter le diagnostic.
 
 Technologies utilisées : Redis, Requests, JSON, Webhook Teams.
 
-  
+### 
+### Installation
+
+1- Télécharger les fichiers sur un serveur hébergeant docker.
+2- Modifier les fichiers pour rentrer votre url du serveur d'itop et votre url webhook teams.
+3- Modifier les identifiants de connexion à Itop dans le code (pour mon test c'était Admin:Admin) avec le compte de votre choix.
+3- Créer une vue incident dans Itop et la définir en raccourcit en définissant les colonnes suivantes (vous pouvez les modifier à votre guise dans le code et dans ITOP): titre, agent, Echéance TTO, Echéance TTR.
+4- Deployer les conteneurs avec le docker compose: docker-compose up -d
 
 ## Auteur
 
