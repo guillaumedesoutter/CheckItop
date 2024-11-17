@@ -70,11 +70,17 @@ Technologies utilisées : Redis, Requests, JSON, Webhook Teams.
 ### 
 ### Installation
 
+
 - Télécharger les fichiers sur un serveur hébergeant docker.
+  
 - Modifier les fichiers pour rentrer votre url du serveur d'itop et votre url webhook teams.
+  
 - Modifier les identifiants de connexion à Itop dans le code (pour mon test c'était Admin:Admin) avec le compte de votre choix.
+  
 - Créer une vue incident dans Itop et la définir en raccourcit en définissant les colonnes suivantes (vous pouvez les modifier à votre guise dans le code et dans ITOP): titre, agent, Echéance TTO, Echéance TTR.
+  
 - Deployer les conteneurs avec le docker compose: docker-compose up -d
+  
 
 ## Auteur
 
